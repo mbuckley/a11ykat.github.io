@@ -1,0 +1,173 @@
+* {
+  font-family: 'Roboto', 'Avenir Next', 'Avenir', 'Open Sans', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+.shadow-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.shadow-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+header, #header {
+  background-color: #090909;
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 300;
+}
+.card {
+  color: #090909;
+  background-color: #fff;
+  outline: 1px solid #ccc;
+  text-align: center;
+  margin: 32px auto;
+  /* 64px for printing */
+  /*margin: 64px auto;*/
+  max-width: 320px;
+  padding-bottom: 10px;
+}
+.title-block {
+  padding: 16px 16px 2px 16px;
+}
+h1, h2, .table, h3, h4{
+  text-align: left;
+  margin: 0;
+}
+h1 {
+  font-weight: 400;
+  font-size: 24px;
+  padding-bottom: 8px;
+}
+h2, .type {
+  font-weight: 300;
+  font-size: 14px;
+  color: #9B9B9B;
+}
+#logo {
+  margin: auto 0;
+  height: 22px;
+  width: 36px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.flex {
+  display: flex;
+}
+.flex-strech {
+  -webkit-flex: 1; /* Safari 6.1+ */
+  flex: 1;
+}
+.table, .teams {
+  display: flex;
+  padding-left: 16px;
+}
+.table>div:first-child {
+  margin-right: 32px;
+}
+.teams>div {
+  margin-right: 24px;
+}
+.outline {
+  text-align: center;
+  border: 0.5px solid #ccc;
+  padding: 8px 8px 4px 8px;
+  min-width: 24px;
+  min-height: 24px;
+  margin-right:0;
+  /*min-height: 32px;*/
+}
+.team {
+  padding-top: 8px;
+}
+.t1 {
+  margin-bottom: 12px;
+}
+.kpi, .value {
+  font-weight: 500;
+}
+progress {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.line-break {
+  border: 0.5px solid #ccc;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+button {
+  width: 25%;
+  height: 40px;
+  margin-top: 8px;
+  border-radius: 2px;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+input {
+  margin-top: 4px;
+}
+.edit {
+  border: none;
+}
+.edit-visible {
+  margin-top: 0;
+  /*background: #fff;*/
+  background-color: transparent;
+  border: none;
+  color: rgba(0,0,0,0);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.edit-visible:hover,.edit-visible:focus,.edit-visible:active {
+  color: rgba(0,0,0,0.9);
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.slide-down {
+  bottom: -64px;
+}
+.slide-up {
+  bottom: 16px;
+}
+#addNew {
+  cursor: pointer;
+  padding: 8px 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 32px;
+  background-color: #003b64;
+  position: fixed;
+  right: 16px;
+  font-weight: 100;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border: none;
+}
+#addNew:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#toast {
+  position: fixed;
+  left: 16px;
+  background-color: #323232;
+  padding: 16px 24px;
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card.over {
+  border: 2px dashed #000;
+}
