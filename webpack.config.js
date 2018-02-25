@@ -14,23 +14,25 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" }
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            { loader: "css-loader" }
+          ]
+        })
       },
+      { test: /\.jade$/, loader: "jade-loader" }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
-    new ExtractTextPlugin("a11ykat.css"),
     new HtmlWebpackPlugin({
+      inject: false,
+      cache: false,
+      template: "src/index.jade",
       filename: "index.html",
-      inject: true,
-      inlineSource: ".(js|css)$",
-      template: "index.html",
       title: "A11y Kat"
-    })
+    }),
+    new ExtractTextPlugin("test.css"),
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),

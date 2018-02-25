@@ -1,0 +1,63 @@
+doctype html
+html
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='description', content='A universal language for value and priority')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+  title #{htmlWebpackPlugin.options.title}
+  // Disable tap highlight on IE
+  meta(name='msapplication-tap-highlight', content='no')
+  // <link rel="icon" href="images/favicon.ico">
+  // Web Application Manifest
+  // <link rel="manifest" href="manifest.json">
+  // Add to homescreen for Chrome on Android
+  meta(name='mobile-web-app-capable', content='yes')
+  meta(name='application-name', content='ValueCards')
+  meta(name='theme-color', content='#003b64')
+  // Add to homescreen for Safari on iOS
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+  meta(name='apple-mobile-web-app-title', content='Value Cards')
+  meta(name='apple-mobile-web-app-status-bar-style', content='#090909')
+  // Tile icon for Win8
+  //
+    <meta name="msapplication-TileColor" content="#090909">
+    <meta name="msapplication-navbutton-color" content="#090909">
+  each cssFile in htmlWebpackPlugin.files.css
+    style !{compilation.assets[cssFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}
+  body
+    header.flex.shadow-1.hide
+      // <img id="logo" src="">
+      h1#header
+    // <input type="checkbox" id="showDone" name="done" value="done">
+    // <label for="showDone">Show Done</label>
+    // <select>
+    // <option value="team">Team 1</option>
+    // </select>
+    button#addNew.shadow-2.slide-down +
+    template
+      .card.shadow-1(draggable='true')
+        .title-block
+          h1(contenteditable='') Title
+          h2(contenteditable='') Description.
+        .line-break
+        .table
+          div
+            .kpi(contenteditable='') KPI
+            h2.metric(contenteditable='') metric
+          .flex-strech
+            .kpi(contenteditable='') Value
+            h2.metric(contenteditable='') Metric
+          button.edit-visible(onclick='showEdit(event)') Edit
+        button.edit.hide(onclick='save(event)') Save
+        button.edit.hide(onclick='removeThis(event)') Delete
+        .table.edit.hide.options
+          div
+            h3.value(contenteditable='') 5
+            h4.type priority
+          input(type='color', value='#ffffff', onchange='updateColour(event)')
+    #toast.slide-down Initiative added!
+    script(src='//www.gstatic.com/firebasejs/4.9.0/firebase.js')
+    script(src='//www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js')
+    each jsFile in htmlWebpackPlugin.files.js
+      script(type="text/javascript") !{compilation.assets[jsFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}

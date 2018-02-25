@@ -1,3 +1,4 @@
+
 import "./index.css";
 
 const teamName = "template";
@@ -215,7 +216,7 @@ function addNew() {
   var clone = temp.content.cloneNode(true);
 
   //Create a new node, based on the template:
-  card = document.importNode(clone, true);
+  var card = document.importNode(clone, true);
   //append the new node wherever you like:
   document.body.appendChild(card);
 }
@@ -315,3 +316,14 @@ setTimeout(function() {
     card.addEventListener('dragend', handleDragEnd, false);
   });
 }, 2000);
+
+// event listeners (just a demo / clean up)
+// -- toggle add button
+var links = document.getElementsByTagName("header");
+var linkList = Array.prototype.slice.call(links);
+linkList.forEach(function(link) {
+  link.onclick = toggleAddButton;
+});
+
+// -- toggle add new
+document.getElementById("addNew").onclick = addNew;
